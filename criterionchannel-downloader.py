@@ -66,5 +66,5 @@ decrypt = subprocess.run(fr'shaka-packager in="{folder_path}/{filename}.m4a",str
 print(decrypt)
 decrypt = subprocess.run(fr'shaka-packager in="{folder_path}/{filename}.mp4",stream=video,output="{dest_dir}/decrypted-video.mp4" --enable_raw_key_decryption --keys {decryption_key}')
 print(decrypt)
-subprocess.run(["rm", f"{folder_path}/{filename}.m4a"])
-subprocess.run(["rm", f"{folder_path}/{filename}.mp4"])
+os.remove(f"{folder_path}/{filename}.m4a")
+os.remove(f"{folder_path}/{filename}.mp4")
