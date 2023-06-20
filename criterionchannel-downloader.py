@@ -16,7 +16,7 @@ license_1url = requests.get(f'{license_url}')
 final_license = license_1url.text
 
 filename = input("Enter file/folder name: ")
-folder_path = f"A:/criterion"
+folder_path = f"ADDHERE" # make this a valid file path
 
 kid = requests.get(mpd)
 os.makedirs(folder_path, exist_ok=True)
