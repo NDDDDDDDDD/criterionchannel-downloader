@@ -22,7 +22,7 @@ if data["video"]["title"] != "Untitled":
 else:
     filename = input("Enter final filename: ")
 folder_path = f"ADDHERE" # make sure this is a valid folder path
-dest_dir = f"{folder_path}/{filename}/{filename}"
+dest_dir = f"{folder_path}/{filename}"
 kid = requests.get(mpd)
 os.makedirs(folder_path, exist_ok=True)
 try:
