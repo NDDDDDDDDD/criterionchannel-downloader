@@ -9,15 +9,20 @@ import os
 mainurl = input("Enter config url: ")
 response = requests.get(f'{mainurl}')
 data=json.loads(response.text)
+print(data)
 license_url = data["request"]["drm"]["cdms"]["widevine"]["license_url"]
 mpd = data['request']['files']['dash']['cdns']['fastly']['avc_url']
 
 license_1url = requests.get(f'{license_url}')
 final_license = license_1url.text
 
-filename = input("Enter file/folder name: ")
-folder_path = f"ADDHERE" # make this a valid file path
 
+if data["video"]["title"] != "Untitled":
+    filename = data["video"]["title"]
+else:
+    filename = input("Enter final filename: ")
+folder_path = f"ADDHERE" # make sure this is a valid folder path
+dest_dir = f"{folder_path}/{filename}/{filename}"
 kid = requests.get(mpd)
 os.makedirs(folder_path, exist_ok=True)
 try:
