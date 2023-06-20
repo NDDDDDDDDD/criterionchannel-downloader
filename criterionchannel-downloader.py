@@ -9,7 +9,6 @@ import os
 mainurl = input("Enter config url: ")
 response = requests.get(f'{mainurl}')
 data=json.loads(response.text)
-print(data)
 license_url = data["request"]["drm"]["cdms"]["widevine"]["license_url"]
 mpd = data['request']['files']['dash']['cdns']['fastly']['avc_url']
 
